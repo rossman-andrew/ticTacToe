@@ -3,9 +3,6 @@
   "author": "Andrew Rossman",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "npm test"
-  },
   "dependencies": {
     "prompt": "^1.0.0"
   }
