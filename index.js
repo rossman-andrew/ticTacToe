@@ -97,6 +97,11 @@ const play = (board, move) => {
       }
       if (board[row][col] === ' ') {
         board[row][col] = move;
+        if (gameOver(board)) {
+          displayBoard(board);
+          console.log(move, 'wins!');
+          return;
+        }
         const newMove = move === 'x' ? 'o' : 'x';
         play(board, newMove);
       } else {
