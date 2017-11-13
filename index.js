@@ -9,6 +9,54 @@ const displayBoard = (board) => {
   console.log('', board[2][0], '|', board[2][1], '|', board[2][2]);
 };
 
+const gameOver = (board) => {
+  let x = 0;
+  let o = 0;
+  // check vertical
+  for (let col = 0; col < 3; col++) {
+    for (let row = 0; row < 3; row++) {
+      if (board[row][col] === 'x') {
+        x++;
+      } else if (board[row][col] === 'o') {
+        o++;
+      }
+    }
+    if (x === 3) {
+      return true;
+    } else if (o === 3) {
+      return true;
+    } else {
+      x = 0;
+      o = 0;
+    }
+  }
+  // check horizontal
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      if (board[row][col] === 'x') {
+        x++;
+      } else if (board[row][col] === 'o') {
+        o++;
+      }
+    }
+    if (x === 3) {
+      return true;
+    } else if (o === 3) {
+      return true;
+    } else {
+      x = 0;
+      o = 0;
+    }
+  }
+  // check diagonal
+  if (board[0][0] === 'x' && board[1][1] === 'x' && board[2][2] === 'x' || board[0][0] === 'o' && board[1][1] === 'o' && board[2][2] === 'o') {
+    return true;
+  } else if (board[0][2] === 'x' && board[1][1] === 'x' && board[2][0] === 'x' || board[0][2] === 'o' && board[1][1] === 'o' && board[2][0] === 'o') {
+    return true;
+  }
+  return false;
+}
+
 const play = (board, move) => {
   displayBoard(board);
   let row = null;
